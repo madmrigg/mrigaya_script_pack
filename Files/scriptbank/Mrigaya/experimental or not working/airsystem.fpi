@@ -1,0 +1,33 @@
+;Artificial Intelligence Script
+ 
+;Created by Mrigaya based on logic by hukuta94
+;Edited by 2S!K Productions
+;Debugged by Mrigaya
+ 
+;Header
+ 
+desc = Player Breath System for sprinting and diving underwater
+
+:state=0:dimvar=BREATH,state=1
+:state=1:setvar=BREATH 10:state=2
+:state=2:keypressed=42 1,plrunderwater=0:state=10
+:state=2,plrunderwater=1,varnotequal=BREATH 0:state=10
+:state=2,plrunderwater=1,varequal=BREATH 0:state=31
+
+:state=10:etimerstart,state=11
+:state=11,keypressed=42 1,etimergreater=1000:subvarvar=BREATH 1,state=20
+:state=11,plrunderwater=1,etimergreater=1000,varnotequal=BREATH 0:subvarvar=BREATH 1,state=20
+:state=11,keypressed=42 0,plrunderwater=0:state=20
+:state=11,plrunderwater=0:state=20
+
+:state=20,plrunderwater=1,varnotequal=BREATH 0:etimerstart,state=10
+:state=20,plrunderwater=1,varequal=BREATH 0:etimerstart,state=31
+:state=20,keypressed=42 1,plrunderwater=0:state=10
+:state=20,keypressed=42 0,plrunderwater=0:etimerstart,state=21
+:state=21,keypressed=42 0,plrunderwater=0,etimergreater=1000:addvar=BREATH 1,state=20
+
+:state=31,plrunderwater=1,etimergreater=1000,varequal=BREATH 0:plraddhealth=-5,state=20
+
+
+ 
+;End of Script

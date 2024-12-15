@@ -1,0 +1,16 @@
+;Artificial Intelligence Script
+
+;Header
+
+desc          = Player HitBack Effect on damage
+
+;Triggers
+
+:state=0:plrdeath=5,plrdeathbounce=50,plrdeathspeed=50
+:state=0,plrusingrun=1,plrnotcrouched:camfov=10,plrspeedmod=120
+:state=0,plrusingrun=1,plrcrouching:camfov=0,plrspeedmod=67
+:state=0,plrusingrun=0,plrnotcrouched:camfov=0,plrspeedmod=100
+:state=0,plrcrouching:plrspeedmod=67
+:state=0,plrusingrun=0:camfov=0
+
+;End of Script

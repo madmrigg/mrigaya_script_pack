@@ -1,0 +1,13 @@
+;Artificial Intelligence Script
+
+;Header
+
+desc          = Sound Looped In Zone (once player inside)
+
+;Triggers
+
+:state=0,plrwithinzone=1:state=1
+:state=1:sound=$0,state=2
+:state=2,soundfinished=1:state=1
+:state=2,soundfinished=0:state=1
+

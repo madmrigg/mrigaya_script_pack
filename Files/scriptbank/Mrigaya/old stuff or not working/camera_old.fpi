@@ -1,0 +1,210 @@
+;Artificial Intelligence Script
+ 
+;Header
+ 
+desc          = Pace Waypoints, If See Player, meele or shoot
+ 
+;Triggers
+
+:always:plrcamoffseton=1
+
+:state=0,keypressed=17 1,plrnotrunning,plrnotcrouching:state=1
+:state=0,keypressed=17 0,plrnotrunning,plrnotcrouching:plrcamoffsety=0,setvar=$CAZ 0,state=0
+:state=0,keypressed=17 1,plrrunning,plrnotcrouching:state=6
+:state=0,keypressed=17 0,plrrunning,plrnotcrouching:plrcamoffsety=0,setvar=$CAZ 0,state=0
+:state=0,keypressed=17 1,plrcrouching:state=10
+:state=0,keypressed=17 0,plrcrouching:plrcamoffsety=0,setvar=$CAZ 0,state=0
+
+:state=0,keypressed=30 1,plrnotrunning,plrnotcrouching:state=1
+:state=0,keypressed=30 0,plrnotrunning,plrnotcrouching:plrcamoffsety=0,setvar=$CAZ 0,state=0
+:state=0,keypressed=30 1,plrrunning,plrnotcrouching:state=6
+:state=0,keypressed=30 0,plrrunning,plrnotcrouching:plrcamoffsety=0,setvar=$CAZ 0,state=0
+:state=0,keypressed=30 1,plrcrouching:state=10
+:state=0,keypressed=30 0,plrcrouching:plrcamoffsety=0,setvar=$CAZ 0,state=0
+
+:state=0,keypressed=31 1,plrnotrunning,plrnotcrouching:state=1
+:state=0,keypressed=31 0,plrnotrunning,plrnotcrouching:plrcamoffsety=0,setvar=$CAZ 0,state=0
+:state=0,keypressed=31 1,plrrunning,plrnotcrouching:state=6
+:state=0,keypressed=31 0,plrrunning,plrnotcrouching:plrcamoffsety=0,setvar=$CAZ 0,state=0
+:state=0,keypressed=31 1,plrcrouching:state=10
+:state=0,keypressed=31 0,plrcrouching:plrcamoffsety=0,setvar=$CAZ 0,state=0
+
+:state=0,keypressed=32 1,plrnotrunning,plrnotcrouching:state=1
+:state=0,keypressed=32 0,plrnotrunning,plrnotcrouching:plrcamoffsety=0,setvar=$CAZ 0,state=0
+:state=0,keypressed=32 1,plrrunning,plrnotcrouching:state=6
+:state=0,keypressed=32 0,plrrunning,plrnotcrouching:plrcamoffsety=0,setvar=$CAZ 0,state=0
+:state=0,keypressed=32 1,plrcrouching:state=10
+:state=0,keypressed=32 0,plrcrouching:plrcamoffsety=0,setvar=$CAZ 0,state=0
+
+:state=3,keypressed=17 1,plrnotrunning,plrnotcrouching:state=4
+:state=3,keypressed=17 0,plrnotrunning,plrnotcrouching:plrcamoffsety=0,setvar=$CAZ 0,state=0
+:state=3,keypressed=17 1,plrrunning,plrnotcrouching:state=8
+:state=3,keypressed=17 0,plrrunning,plrnotcrouching:plrcamoffsety=0,setvar=$CAZ 0,state=0
+:state=3,keypressed=17 1,plrcrouching:state=12
+:state=3,keypressed=17 0,plrcrouching:plrcamoffsety=0,setvar=$CAZ 0,state=0
+
+:state=3,keypressed=30 1,plrnotrunning,plrnotcrouching:state=4
+:state=3,keypressed=30 0,plrnotrunning,plrnotcrouching:plrcamoffsety=0,setvar=$CAZ 0,state=0
+:state=3,keypressed=30 1,plrrunning,plrnotcrouching:state=8
+:state=3,keypressed=30 0,plrrunning,plrnotcrouching:plrcamoffsety=0,setvar=$CAZ 0,state=0
+:state=3,keypressed=30 1,plrcrouching:state=12
+:state=3,keypressed=30 0,plrcrouching:plrcamoffsety=0,setvar=$CAZ 0,state=0
+
+:state=3,keypressed=31 1,plrnotrunning,plrnotcrouching:state=4
+:state=3,keypressed=31 0,plrnotrunning,plrnotcrouching:plrcamoffsety=0,setvar=$CAZ 0,state=0
+:state=3,keypressed=31 1,plrrunning,plrnotcrouching:state=8
+:state=3,keypressed=31 0,plrrunning,plrnotcrouching:plrcamoffsety=0,setvar=$CAZ 0,state=0
+:state=3,keypressed=31 1,plrcrouching:state=12
+:state=3,keypressed=31 0,plrcrouching:plrcamoffsety=0,setvar=$CAZ 0,state=0
+
+:state=3,keypressed=32 1,plrnotrunning,plrnotcrouching:state=4
+:state=3,keypressed=32 0,plrnotrunning,plrnotcrouching:plrcamoffsety=0,setvar=$CAZ 0,state=0
+:state=3,keypressed=32 1,plrrunning,plrnotcrouching:state=8
+:state=3,keypressed=32 0,plrrunning,plrnotcrouching:plrcamoffsety=0,setvar=$CAZ 0,state=0
+:state=3,keypressed=32 1,plrcrouching:state=12
+:state=3,keypressed=32 0,plrcrouching:plrcamoffsety=0,setvar=$CAZ 0,state=0
+
+;Player is Moving (no sprint, no crouch, jo jump)
+
+:state=1:etimerstart,state=2
+:state=2,etimergreater=0:plrcamoffsety=0,setvar=$CAZ 0
+:state=2,etimergreater=17:plrcamoffsety=0.1,setvar=$CAZ 0.05
+:state=2,etimergreater=33:plrcamoffsety=0.2,setvar=$CAZ 0.1
+:state=2,etimergreater=50:plrcamoffsety=0.3,setvar=$CAZ 0.15
+:state=2,etimergreater=66:plrcamoffsety=0.4,setvar=$CAZ 0.2
+:state=2,etimergreater=83:plrcamoffsety=0.5,setvar=$CAZ 0.25
+:state=2,etimergreater=99:plrcamoffsety=0.6,setvar=$CAZ 0.3
+:state=2,etimergreater=116:plrcamoffsety=0.7,setvar=$CAZ 0.35
+:state=2,etimergreater=132:plrcamoffsety=0.8,setvar=$CAZ 0.4
+:state=2,etimergreater=149:plrcamoffsety=0.9,setvar=$CAZ 0.45
+:state=2,etimergreater=165:plrcamoffsety=1,setvar=$CAZ 0.5
+:state=2,etimergreater=182:plrcamoffsety=0.9,setvar=$CAZ 0.45
+:state=2,etimergreater=198:plrcamoffsety=0.8,setvar=$CAZ 0.4
+:state=2,etimergreater=215:plrcamoffsety=0.7,setvar=$CAZ 0.35
+:state=2,etimergreater=231:plrcamoffsety=0.6,setvar=$CAZ 0.3
+:state=2,etimergreater=248:plrcamoffsety=0.5,setvar=$CAZ 0.25
+:state=2,etimergreater=264:plrcamoffsety=0.4,setvar=$CAZ 0.2
+:state=2,etimergreater=281:plrcamoffsety=0.3,setvar=$CAZ 0.15
+:state=2,etimergreater=297:plrcamoffsety=0.2,setvar=$CAZ 0.1
+:state=2,etimergreater=300:plrcamoffsety=0.1,setvar=$CAZ 0.05,state=3
+
+:state=4:etimerstart,state=5
+:state=5,etimergreater=0:plrcamoffsety=0,setvar=$CAZ 0
+:state=5,etimergreater=17:plrcamoffsety=0.1,setvar=$CAZ -0.05
+:state=5,etimergreater=33:plrcamoffsety=0.2,setvar=$CAZ -0.1
+:state=5,etimergreater=50:plrcamoffsety=0.3,setvar=$CAZ -0.15
+:state=5,etimergreater=66:plrcamoffsety=0.4,setvar=$CAZ -0.2
+:state=5,etimergreater=83:plrcamoffsety=0.5,setvar=$CAZ -0.25
+:state=5,etimergreater=99:plrcamoffsety=0.6,setvar=$CAZ -0.3
+:state=5,etimergreater=116:plrcamoffsety=0.7,setvar=$CAZ -0.35
+:state=5,etimergreater=132:plrcamoffsety=0.8,setvar=$CAZ -0.4
+:state=5,etimergreater=149:plrcamoffsety=0.9,setvar=$CAZ -0.45
+:state=5,etimergreater=165:plrcamoffsety=1,setvar=$CAZ -0.5
+:state=5,etimergreater=182:plrcamoffsety=0.9,setvar=$CAZ -0.45
+:state=5,etimergreater=198:plrcamoffsety=0.8,setvar=$CAZ -0.4
+:state=5,etimergreater=215:plrcamoffsety=0.7,setvar=$CAZ -0.35
+:state=5,etimergreater=231:plrcamoffsety=0.6,setvar=$CAZ -0.3
+:state=5,etimergreater=248:plrcamoffsety=0.5,setvar=$CAZ -0.25
+:state=5,etimergreater=264:plrcamoffsety=0.4,setvar=$CAZ -0.2
+:state=5,etimergreater=281:plrcamoffsety=0.3,setvar=$CAZ -0.15
+:state=5,etimergreater=297:plrcamoffsety=0.2,setvar=$CAZ -0.1
+:state=5,etimergreater=297:plrcamoffsety=0.1,setvar=$CAZ -0.05
+:state=5,etimergreater=300:plrcamoffsety=0.1,setvar=$CAZ 0,state=0
+
+;Player is sprinting (no move, no crouch, no jump)
+
+:state=6:etimerstart,state=7
+:state=7,etimergreater=0:plrcamoffsety=0,setvar=$CAZ 0
+:state=7,etimergreater=17:plrcamoffsety=0.1,setvar=$CAZ 0.1
+:state=7,etimergreater=33:plrcamoffsety=0.2,setvar=$CAZ 0.2
+:state=7,etimergreater=50:plrcamoffsety=0.3,setvar=$CAZ 0.3
+:state=7,etimergreater=66:plrcamoffsety=0.4,setvar=$CAZ 0.4
+:state=7,etimergreater=83:plrcamoffsety=0.5,setvar=$CAZ 0.5
+:state=7,etimergreater=99:plrcamoffsety=0.6,setvar=$CAZ 0.6
+:state=7,etimergreater=116:plrcamoffsety=0.7,setvar=$CAZ 0.7
+:state=7,etimergreater=132:plrcamoffsety=0.8,setvar=$CAZ 0.8
+:state=7,etimergreater=149:plrcamoffsety=0.9,setvar=$CAZ 0.9
+:state=7,etimergreater=165:plrcamoffsety=1,setvar=$CAZ 1
+:state=7,etimergreater=182:plrcamoffsety=0.9,setvar=$CAZ 0.9
+:state=7,etimergreater=198:plrcamoffsety=0.8,setvar=$CAZ 0.8
+:state=7,etimergreater=215:plrcamoffsety=0.7,setvar=$CAZ 0.7
+:state=7,etimergreater=231:plrcamoffsety=0.6,setvar=$CAZ 0.6
+:state=7,etimergreater=248:plrcamoffsety=0.5,setvar=$CAZ 0.5
+:state=7,etimergreater=264:plrcamoffsety=0.4,setvar=$CAZ 0.4
+:state=7,etimergreater=281:plrcamoffsety=0.3,setvar=$CAZ 0.3
+:state=7,etimergreater=297:plrcamoffsety=0.2,setvar=$CAZ 0.2
+:state=7,etimergreater=300:plrcamoffsety=0.1,setvar=$CAZ 0.1,state=3
+
+:state=8:etimerstart,state=9
+:state=9,etimergreater=0:plrcamoffsety=0,setvar=$CAZ 0
+:state=9,etimergreater=17:plrcamoffsety=0.1,setvar=$CAZ -0.1
+:state=9,etimergreater=33:plrcamoffsety=0.2,setvar=$CAZ -0.2
+:state=9,etimergreater=50:plrcamoffsety=0.3,setvar=$CAZ -0.3
+:state=9,etimergreater=66:plrcamoffsety=0.4,setvar=$CAZ -0.4
+:state=9,etimergreater=83:plrcamoffsety=0.5,setvar=$CAZ -0.5
+:state=9,etimergreater=99:plrcamoffsety=0.6,setvar=$CAZ -0.6
+:state=9,etimergreater=116:plrcamoffsety=0.7,setvar=$CAZ -0.7
+:state=9,etimergreater=132:plrcamoffsety=0.8,setvar=$CAZ -0.8
+:state=9,etimergreater=149:plrcamoffsety=0.9,setvar=$CAZ -0.9
+:state=9,etimergreater=165:plrcamoffsety=1,setvar=$CAZ -1
+:state=9,etimergreater=182:plrcamoffsety=0.9,setvar=$CAZ -0.9
+:state=9,etimergreater=198:plrcamoffsety=0.8,setvar=$CAZ -0.8
+:state=9,etimergreater=215:plrcamoffsety=0.7,setvar=$CAZ -0.7
+:state=9,etimergreater=231:plrcamoffsety=0.6,setvar=$CAZ -0.6
+:state=9,etimergreater=248:plrcamoffsety=0.5,setvar=$CAZ -0.5
+:state=9,etimergreater=264:plrcamoffsety=0.4,setvar=$CAZ -0.4
+:state=9,etimergreater=281:plrcamoffsety=0.3,setvar=$CAZ -0.3
+:state=9,etimergreater=297:plrcamoffsety=0.2,setvar=$CAZ -0.2
+:state=9,etimergreater=297:plrcamoffsety=0.1,setvar=$CAZ -0.1
+:state=9,etimergreater=300:plrcamoffsety=0.1,setvar=$CAZ 0,state=0
+
+;Player is crouching (no move, no sprint, no jump)
+
+:state=10:etimerstart,state=11
+:state=11,etimergreater=0:plrcamoffsety=0,setvar=$CAZ 0
+:state=11,etimergreater=17:plrcamoffsety=0.1,setvar=$CAZ 0.1
+:state=11,etimergreater=33:plrcamoffsety=0.2,setvar=$CAZ 0.2
+:state=11,etimergreater=50:plrcamoffsety=0.3,setvar=$CAZ 0.3
+:state=11,etimergreater=66:plrcamoffsety=0.4,setvar=$CAZ 0.4
+:state=11,etimergreater=83:plrcamoffsety=0.5,setvar=$CAZ 0.5
+:state=11,etimergreater=99:plrcamoffsety=0.6,setvar=$CAZ 0.6
+:state=11,etimergreater=116:plrcamoffsety=0.7,setvar=$CAZ 0.7
+:state=11,etimergreater=132:plrcamoffsety=0.8,setvar=$CAZ 0.8
+:state=11,etimergreater=149:plrcamoffsety=0.9,setvar=$CAZ 0.9
+:state=11,etimergreater=165:plrcamoffsety=1,setvar=$CAZ 1
+:state=11,etimergreater=182:plrcamoffsety=0.9,setvar=$CAZ 0.9
+:state=11,etimergreater=198:plrcamoffsety=0.8,setvar=$CAZ 0.8
+:state=11,etimergreater=215:plrcamoffsety=0.7,setvar=$CAZ 0.7
+:state=11,etimergreater=231:plrcamoffsety=0.6,setvar=$CAZ 0.6
+:state=11,etimergreater=248:plrcamoffsety=0.5,setvar=$CAZ 0.5
+:state=11,etimergreater=264:plrcamoffsety=0.4,setvar=$CAZ 0.4
+:state=11,etimergreater=281:plrcamoffsety=0.3,setvar=$CAZ 0.3
+:state=11,etimergreater=297:plrcamoffsety=0.2,setvar=$CAZ 0.2
+:state=11,etimergreater=300:plrcamoffsety=0.1,setvar=$CAZ 0.1,state=3
+
+:state=12:etimerstart,state=13
+:state=13,etimergreater=0:plrcamoffsety=0,setvar=$CAZ 0
+:state=13,etimergreater=17:plrcamoffsety=0.1,setvar=$CAZ -0.1
+:state=13,etimergreater=33:plrcamoffsety=0.2,setvar=$CAZ -0.2
+:state=13,etimergreater=50:plrcamoffsety=0.3,setvar=$CAZ -0.3
+:state=13,etimergreater=66:plrcamoffsety=0.4,setvar=$CAZ -0.4
+:state=13,etimergreater=83:plrcamoffsety=0.5,setvar=$CAZ -0.5
+:state=13,etimergreater=99:plrcamoffsety=0.6,setvar=$CAZ -0.6
+:state=13,etimergreater=116:plrcamoffsety=0.7,setvar=$CAZ -0.7
+:state=13,etimergreater=132:plrcamoffsety=0.8,setvar=$CAZ -0.8
+:state=13,etimergreater=149:plrcamoffsety=0.9,setvar=$CAZ -0.9
+:state=13,etimergreater=165:plrcamoffsety=1,setvar=$CAZ -1
+:state=13,etimergreater=182:plrcamoffsety=0.9,setvar=$CAZ -0.9
+:state=13,etimergreater=198:plrcamoffsety=0.8,setvar=$CAZ -0.8
+:state=13,etimergreater=215:plrcamoffsety=0.7,setvar=$CAZ -0.7
+:state=13,etimergreater=231:plrcamoffsety=0.6,setvar=$CAZ -0.6
+:state=13,etimergreater=248:plrcamoffsety=0.5,setvar=$CAZ -0.5
+:state=13,etimergreater=264:plrcamoffsety=0.4,setvar=$CAZ -0.4
+:state=13,etimergreater=281:plrcamoffsety=0.3,setvar=$CAZ -0.3
+:state=13,etimergreater=297:plrcamoffsety=0.2,setvar=$CAZ -0.2
+:state=13,etimergreater=297:plrcamoffsety=0.1,setvar=$CAZ -0.1
+:state=13,etimergreater=300:plrcamoffsety=0.1,setvar=$CAZ 0,state=0
+
+;Player is jumping
+
+;End of Script

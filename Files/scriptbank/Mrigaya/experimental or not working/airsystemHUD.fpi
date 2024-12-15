@@ -1,0 +1,37 @@
+;Artificial Intelligence Script
+ 
+;Created by Mrigaya based on logic by hukuta94
+;Edited by 2S!K Productions
+;Debugged by Mrigaya
+ 
+;Header
+ 
+desc = Player Breath System for sprinting and diving underwater
+
+:state=0:hudx=14.75,hudy=84,hudglobalx,hudglobaly,hudimage=languagebank\english\gamecore\huds\AirHUD\airhud0.dds,hudlayer=7,hudname=BREATH0,hudhide=1,hudmake=display
+:state=0:hudx=14.75,hudx=84,hudglobalx,hudglobaly,hudimage=languagebank\english\gamecore\huds\AirHUD\airhud1.dds,hudlayer=7mhudname=BREATH1,hudhide=1,hudmake=display
+:state=0:hudx=14.75,hudx=84,hudglobalx,hudglobaly,hudimage=languagebank\english\gamecore\huds\AirHUD\airhud2.dds,hudlayer=7,hudname=BREATH2,hudhide=1,hudmake=display
+:state=0:hudx=14.75,hudx=84,hudglobalx,hudglobaly,hudimage=languagebank\english\gamecore\huds\AirHUD\airhud3.dds,hudlayer=7,hudname=BREATH3,hudhide=1,hudmake=display
+:state=0:hudx=14.75,hudx=84,hudglobalx,hudglobaly,hudimage=languagebank\english\gamecore\huds\AirHUD\airhud4.dds,hudlayer=7,hudname=BREATH4,hudhide=1,hudmake=display
+:state=0:hudx=14.75,hudx=84,hudglobalx,hudglobaly,hudimage=languagebank\english\gamecore\huds\AirHUD\airhud5.dds,hudlayer=7,hudname=BREATH5,hudhide=1,hudmake=display
+:state=0:hudx=14.75,hudx=84,hudglobalx,hudglobaly,hudimage=languagebank\english\gamecore\huds\AirHUD\airhud6.dds,hudlayer=7,hudname=BREATH6,hudhide=1,hudmake=display
+:state=0:hudx=14.75,hudx=84,hudglobalx,hudglobaly,hudimage=languagebank\english\gamecore\huds\AirHUD\airhud7.dds,hudlayer=7,hudname=BREATH7,hudhide=1,hudmake=display
+:state=0:hudx=14.75,hudx=84,hudglobalx,hudglobaly,hudimage=languagebank\english\gamecore\huds\AirHUD\airhud8.dds,hudlayer=7,hudname=BREATH8,hudhide=1,hudmake=display
+:state=0:hudx=14.75,hudx=84,hudglobalx,hudglobaly,hudimage=languagebank\english\gamecore\huds\AirHUD\airhud9.dds,hudlayer=7,hudname=BREATH9,hudhide=1,hudmake=display
+:state=0:hudx=14.75,hudx=84,hudglobalx,hudglobaly,hudimage=languagebank\english\gamecore\huds\AirHUD\airhud10.dds,hudlayer=7,hudname=BREATH10,hudhide=1,hudmake=display,state=1
+
+:state=1,varequal=BREATH 10:hudshow=BREATH10,hudunshow=BREATH9,state=1
+:state=1,varequal=BREATH 9:hudshow=BREATH9,hudunshow=BREATH8,state=1
+:state=1,varequal=BREATH 8:hudshow=BREATH8,hudunshow=BREATH7,state=1
+:state=1,varequal=BREATH 7:hudshow=BREATH7,hudunshow=BREATH6,state=1
+:state=1,varequal=BREATH 6:hudshow=BREATH6,hudunshow=BREATH5,state=1
+:state=1,varequal=BREATH 5:hudshow=BREATH5,hudunshow=BREATH4,state=1
+:state=1,varequal=BREATH 4:hudshow=BREATH4,hudunshow=BREATH3,state=1
+:state=1,varequal=BREATH 3:hudshow=BREATH3,hudunshow=BREATH2,state=1
+:state=1,varequal=BREATH 2:hudshow=BREATH2,hudunshow=BREATH1,state=1
+:state=1,varequal=BREATH 1:hudshow=BREATH1,hudunshow=BREATH0,state=1
+:state=1,varequal=BREATH 0:hudshow=BREATH0,state=1
+
+
+ 
+;End of Script

@@ -1,0 +1,9 @@
+desc          = COD Health
+ 
+;Triggers
+ 
+:state=0:dimvar=fh,state=1
+:vargreater=fh $PH:etimerstart,state=1
+:state=1,etimergreater=2500:plraddhealth=1,etimerstart,setvar=H $PH,state=2
+:state=2,etimergreater=999:plraddhealth=1,etimerstart,setvar=H $PH
+:ALWAYS:setvar=fh $PH,subvar=fh 1

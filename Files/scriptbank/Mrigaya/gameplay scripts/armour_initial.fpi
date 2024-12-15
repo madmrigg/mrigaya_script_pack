@@ -1,0 +1,17 @@
+;Artificial Intelligence Script
+
+;Script by Mrigaya
+
+;Header
+
+desc          = Player initial armour value
+
+;Triggers
+
+:state=0:armon=1,state=1
+:state=1:setarm=100,state=2
+:state=2:armdec=100,state=3
+:state=3:state=3
+
+
+;End of Script

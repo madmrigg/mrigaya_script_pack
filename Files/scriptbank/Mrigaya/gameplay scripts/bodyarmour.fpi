@@ -1,0 +1,12 @@
+;Artificial Intelligence Script
+
+;Header
+
+desc          = Armour Pick Up
+
+;Triggers
+
+:state=0:hudglobalx,hudglobaly,setarmx=12.5,setarmy=74.20,state=1
+:state=1,plrdistwithin=50,pickobject=1,cantake:state=1,playertake,coloff,plrsound=audiobank\items\pickup.wav,arminc=25
+
+;End of Script

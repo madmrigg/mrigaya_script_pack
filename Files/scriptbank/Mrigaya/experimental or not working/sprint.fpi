@@ -1,0 +1,28 @@
+;Artificial Intelligence Script
+;By 2S!K Productions 
+ 
+;Header
+  
+desc          = Stamina Function
+  
+;Triggers
+  
+:state=0:newjumpheight=50,plrwobble=0,state=1
+ 
+:state=1,keypressed=17 1:plrwobble=2
+:state=1,keypressed=31 1:plrwobble=2
+:state=1,keypressed=30 1:plrwobble=3
+:state=1,keypressed=32 1:plrwobble=3
+:state=1,keypressed=17 0,keypressed=31 0,keypressed=30 0,keypressed=32 0:plrwobble=0
+ 
+:state=1,plrrunning:plrwobble=8,camfov=6,state=2,etimerstart
+:state=2,plrrunning,etimergreater=10000:state=4,plrspeedmod=50,newjumpheight=44
+ 
+:State=2,plrnotrunning:plrwobble=2,etimerstart,state=3
+:state=3,etimergreater=5000:plrwobble=0,state=0
+:state=3,plrrunning:state=1
+ 
+:state=4,plrnotrunning:plrwobble=5,etimerstart,state=5
+:state=5,etimergreater=12000:plrwobble=0,plrspeedmod=100,state=0
+ 
+;End of Script

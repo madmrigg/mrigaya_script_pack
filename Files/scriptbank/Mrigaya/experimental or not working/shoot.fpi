@@ -1,0 +1,3 @@
+
+:state=0,mousestate=1,plrzoomed:etimerstart,camshake=10,state=1
+:state=1,etimergreater=100:camshake=0,state=0

@@ -1,0 +1,3 @@
+:state=0:hudreset,hudx=13,hudy=85.75,hudsizex=16,hudsizey=16,hudimage=gamecore\huds\numeric.tga,hudtype=3,hudmake=numeric
+:state=0,mousestate=1,plrzoomed:etimerstart,camshake=10,state=1
+:state=1,etimergreater=100:camshake=0,state=0

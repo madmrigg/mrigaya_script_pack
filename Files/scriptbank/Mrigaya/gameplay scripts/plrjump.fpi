@@ -1,0 +1,44 @@
+;Artificial Intelligence Script
+;Script by Mrigaya
+;Header
+
+desc          = Player Jump Camera Effect
+
+;Triggers
+
+;Player is jumping
+
+:always:plrcamoffseton=1
+
+:state=0,plrjumping,plrnotcrouched:state=1
+
+:state=1:etimerstart,state=2
+:state=2,etimergreater=0:plrcamoffsety=3
+:state=2,etimergreater=500:plrcamoffsety=3
+:state=2,etimergreater=510:plrcamoffsety=2.875
+:state=2:etimergreater=520:plrcamoffset=2.75
+:state=2,etimergreater=530:plrcamoffsety=2.625
+:state=2,etimergreater=540:plrcamoffsety=2.5
+:state=2,etimergreater=550:plrcamoffsety=2.375
+:state=2,etimergreater=560:plrcamoffsety=2.25
+:state=2,etimergreater=570:plrcamoffsety=2.125
+:state=2,etimergreater=580:plrcamoffsety=2
+:state=2,etimergreater=590:plrcamoffsety=1.875
+:state=2,etimergreater=600:plrcamoffsety=1.75
+:state=2,etimergreater=610:plrcamoffsety=1.625
+:state=2,etimergreater=620:plrcamoffsety=1.5
+:state=2,etimergreater=630:plrcamoffsety=1.375
+:state=2,etimergreater=640:plrcamoffsety=1.25
+:state=2,etimergreater=650:plrcamoffsety=1.125
+:state=2,etimergreater=660:plrcamoffsety=1.0
+:state=2,etimergreater=670:plrcamoffsety=0.875
+:state=2,etimergreater=680:plrcamoffsety=0.75
+:state=2,etimergreater=690:plrcamoffsety=0.625
+:state=2,etimergreater=700:plrcamoffsety=0.5
+:state=2,etimergreater=710:plrcamoffsety=0.375
+:state=2,etimergreater=720:plrcamoffsety=0.25
+:state=2,etimergreater=730:plrcamoffsety=0.125
+:state=2,etimergreater=740:plrcamoffsety=0
+:state=2,etimergreater=750:plrcamoffsety=0,state=0
+
+;End of Script

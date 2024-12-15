@@ -1,0 +1,213 @@
+;Artificial Intelligence Script
+
+;Script by Mrigaya
+
+;Header
+ 
+desc          = Head bobbing script for player walking running and crouching
+ 
+;Triggers
+
+:always:plrcamoffseton=1
+
+:state=0,keypressed=17 1,plrnotrunning,plrnotcrouched,plrnotjumping:state=1
+:state=0,keypressed=17 0,plrnotrunning,plrnotcrouched,plrnotjumping:setvar=$CAZ 0,state=0
+:state=0,keypressed=17 1,plrrunning,plrnotcrouched,plrnotjumping:state=6
+:state=0,keypressed=17 0,plrrunning,plrnotcrouched,plrnotjumping:setvar=$CAZ 0,state=0
+:state=0,keypressed=17 1,plrcrouching:state=10
+:state=0,keypressed=17 0,plrcrouching:0,setvar=$CAZ 0,state=0
+
+:state=0,keypressed=30 1,plrnotrunning,plrnotcrouched,plrnotjumping:state=1
+:state=0,keypressed=30 0,plrnotrunning,plrnotcrouched,plrnotjumping:setvar=$CAZ 0,state=0
+:state=0,keypressed=30 1,plrrunning,plrnotcrouched,plrnotjumping:state=6
+:state=0,keypressed=30 0,plrrunning,plrnotcrouched,plrnotjumping:setvar=$CAZ 0,state=0
+:state=0,keypressed=30 1,plrcrouching:state=10
+:state=0,keypressed=30 0,plrcrouching:0,setvar=$CAZ 0,0,state=0
+
+:state=0,keypressed=31 1,plrnotrunning,plrnotcrouched,plrnotjumping:state=1
+:state=0,keypressed=31 0,plrnotrunning,plrnotcrouched,plrnotjumping:setvar=$CAZ 0,state=0
+:state=0,keypressed=31 1,plrrunning,plrnotcrouched,plrnotjumping:state=6
+:state=0,keypressed=31 0,plrrunning,plrnotcrouched,plrnotjumping:setvar=$CAZ 0,state=0
+:state=0,keypressed=31 1,plrcrouching:state=10
+:state=0,keypressed=31 0,plrcrouching:0,setvar=$CAZ 0,state=0
+
+:state=0,keypressed=32 1,plrnotrunning,plrnotcrouched,plrnotjumping:state=1
+:state=0,keypressed=32 0,plrnotrunning,plrnotcrouched,plrnotjumping:setvar=$CAZ 0,state=0
+:state=0,keypressed=32 1,plrrunning,plrnotcrouched,plrnotjumping:state=6
+:state=0,keypressed=32 0,plrrunning,plrnotcrouched,plrnotjumping:setvar=$CAZ 0,state=0
+:state=0,keypressed=32 1,plrcrouching:state=10
+:state=0,keypressed=32 0,plrcrouching:0,setvar=$CAZ 0,state=0
+
+
+
+:state=3,keypressed=17 1,plrnotrunning,plrnotcrouched:state=4
+:state=3,keypressed=17 0,plrnotrunning,plrnotcrouched:0,setvar=$CAZ 0,state=0
+:state=3,keypressed=17 1,plrrunning,plrnotcrouched:state=8
+:state=3,keypressed=17 0,plrrunning,plrnotcrouched:setvar=$CAZ 0,state=0
+:state=3,keypressed=17 1,plrcrouching:state=12
+:state=3,keypressed=17 0,plrcrouching:0,setvar=$CAZ 0,state=0
+
+:state=3,keypressed=30 1,plrnotrunning,plrnotcrouched:state=4
+:state=3,keypressed=30 0,plrnotrunning,plrnotcrouched:0,setvar=$CAZ 0,state=0
+:state=3,keypressed=30 1,plrrunning,plrnotcrouched:state=8
+:state=3,keypressed=30 0,plrrunning,plrnotcrouched:0,setvar=$CAZ 0,state=0
+:state=3,keypressed=30 1,plrcrouching:state=12
+:state=3,keypressed=30 0,plrcrouching:0,setvar=$CAZ 0,state=0
+
+:state=3,keypressed=31 1,plrnotrunning,plrnotcrouched:state=4
+:state=3,keypressed=31 0,plrnotrunning,plrnotcrouched:0,setvar=$CAZ 0,state=0
+:state=3,keypressed=31 1,plrrunning,plrnotcrouched:state=8
+:state=3,keypressed=31 0,plrrunning,plrnotcrouched:0,setvar=$CAZ 0,state=0
+:state=3,keypressed=31 1,plrcrouching:state=12
+:state=3,keypressed=31 0,plrcrouching:0,setvar=$CAZ 0,state=0
+
+:state=3,keypressed=32 1,plrnotrunning,plrnotcrouched:state=4
+:state=3,keypressed=32 0,plrnotrunning,plrnotcrouched:0,setvar=$CAZ 0,state=0
+:state=3,keypressed=32 1,plrrunning,plrnotcrouched:state=8
+:state=3,keypressed=32 0,plrrunning,plrnotcrouched:0,setvar=$CAZ 0,state=0
+:state=3,keypressed=32 1,plrcrouching:state=12
+:state=3,keypressed=32 0,plrcrouching:0,setvar=$CAZ 0,state=0
+
+;Player is Moving (no sprint, no crouch, jo jump)
+
+:state=1:etimerstart,state=2
+:state=2,etimergreater=0:setvar=$CAZ 0
+:state=2,etimergreater=17:setvar=$CAZ 0.05
+:state=2,etimergreater=33:setvar=$CAZ 0.1
+:state=2,etimergreater=50:setvar=$CAZ 0.15
+:state=2,etimergreater=66:setvar=$CAZ 0.2
+:state=2,etimergreater=83:setvar=$CAZ 0.25
+:state=2,etimergreater=99:setvar=$CAZ 0.3,
+:state=2,etimergreater=116:setvar=$CAZ 0.35
+:state=2,etimergreater=132:setvar=$CAZ 0.4
+:state=2,etimergreater=149:setvar=$CAZ 0.45
+:state=2,etimergreater=165:setvar=$CAZ 0.5
+:state=2,etimergreater=182:setvar=$CAZ 0.45
+:state=2,etimergreater=198:setvar=$CAZ 0.4
+:state=2,etimergreater=215:setvar=$CAZ 0.35
+:state=2,etimergreater=231:setvar=$CAZ 0.3
+:state=2,etimergreater=248:setvar=$CAZ 0.25
+:state=2,etimergreater=264:setvar=$CAZ 0.2
+:state=2,etimergreater=281:setvar=$CAZ 0.1
+:state=2,etimergreater=300:setvar=$CAZ 0.05,state=3
+
+:state=4:etimerstart,state=5
+:state=5,etimergreater=0:setvar=$CAZ 0,0
+:state=5,etimergreater=17:setvar=$CAZ -0.05
+:state=5,etimergreater=33:setvar=$CAZ -0.1
+:state=5,etimergreater=50:setvar=$CAZ -0.15
+:state=5,etimergreater=66:setvar=$CAZ -0.2
+:state=5,etimergreater=83:setvar=$CAZ -0.25
+:state=5,etimergreater=99:setvar=$CAZ -0.3
+:state=5,etimergreater=116:setvar=$CAZ -0.35
+:state=5,etimergreater=132:setvar=$CAZ -0.4
+:state=5,etimergreater=149:setvar=$CAZ -0.45
+:state=5,etimergreater=165:setvar=$CAZ -0.5
+:state=5,etimergreater=182:setvar=$CAZ -0.45
+:state=5,etimergreater=198:setvar=$CAZ -0.4
+:state=5,etimergreater=215:setvar=$CAZ -0.35
+:state=5,etimergreater=231:setvar=$CAZ -0.3
+:state=5,etimergreater=248:setvar=$CAZ -0.25
+:state=5,etimergreater=264:setvar=$CAZ -0.2
+:state=5,etimergreater=281:setvar=$CAZ -0.15
+:state=5,etimergreater=297:setvar=$CAZ -0.1
+:state=5,etimergreater=297:setvar=$CAZ -0.05
+:state=5,etimergreater=300:setvar=$CAZ 0,state=0
+
+;Player is sprinting (no move, no crouch, no jump)
+
+:state=6:etimerstart,state=7
+:state=7,etimergreater=0:setvar=$CAZ 0
+:state=7,etimergreater=13:setvar=$CAZ 0.1
+:state=7,etimergreater=25:setvar=$CAZ 0.2
+:state=7,etimergreater=38:setvar=$CAZ 0.3
+:state=7,etimergreater=50:setvar=$CAZ 0.4
+:state=7,etimergreater=63:setvar=$CAZ 0.5
+:state=7,etimergreater=75:setvar=$CAZ 0.6
+:state=7,etimergreater=88:setvar=$CAZ 0.7
+:state=7,etimergreater=100:setvar=$CAZ 0.8
+:state=7,etimergreater=113:setvar=$CAZ 0.9
+:state=7,etimergreater=125:setvar=$CAZ 1
+:state=7,etimergreater=138:setvar=$CAZ 0.9
+:state=7,etimergreater=150:setvar=$CAZ 0.8
+:state=7,etimergreater=163:setvar=$CAZ 0.7
+:state=7,etimergreater=175:setvar=$CAZ 0.6
+:state=7,etimergreater=188:setvar=$CAZ 0.5
+:state=7,etimergreater=200:setvar=$CAZ 0.4
+:state=7,etimergreater=213:setvar=$CAZ 0.3
+:state=7,etimergreater=225:setvar=$CAZ 0.2
+:state=7,etimergreater=238:setvar=$CAZ 0.1
+:state=7,etimergreater=250:setvar=$CAZ 0,state=3
+
+:state=8:etimerstart,state=9
+:state=9,etimergreater=0:setvar=$CAZ 0,0
+:state=9,etimergreater=13:setvar=$CAZ -0.1
+:state=9,etimergreater=25:setvar=$CAZ -0.2
+:state=9,etimergreater=38:setvar=$CAZ -0.3
+:state=9,etimergreater=50:setvar=$CAZ -0.4
+:state=9,etimergreater=63:setvar=$CAZ -0.5
+:state=9,etimergreater=75:setvar=$CAZ -0.6
+:state=9,etimergreater=88:setvar=$CAZ -0.7
+:state=9,etimergreater=100:setvar=$CAZ -0.8
+:state=9,etimergreater=113:setvar=$CAZ -0.9
+:state=9,etimergreater=125:setvar=$CAZ -1
+:state=9,etimergreater=138:setvar=$CAZ -0.9
+:state=9,etimergreater=150:setvar=$CAZ -0.8
+:state=9,etimergreater=163:setvar=$CAZ -0.7
+:state=9,etimergreater=175:setvar=$CAZ -0.6
+:state=9,etimergreater=188:setvar=$CAZ -0.5
+:state=9,etimergreater=200:setvar=$CAZ -0.4
+:state=9,etimergreater=213:setvar=$CAZ -0.3
+:state=9,etimergreater=225:setvar=$CAZ -0.2
+:state=9,etimergreater=238:setvar=$CAZ -0.1
+:state=9,etimergreater=250:setvar=$CAZ 0,state=0
+
+;Player is crouching (no move, no sprint, no jump)
+
+:state=10:etimerstart,state=11
+:state=11,etimergreater=0:setvar=$CAZ 0,0
+:state=11,etimergreater=25:setvar=$CAZ 0.1
+:state=11,etimergreater=50:setvar=$CAZ 0.2
+:state=11,etimergreater=75:setvar=$CAZ 0.3
+:state=11,etimergreater=100:setvar=$CAZ 0.4
+:state=11,etimergreater=125:setvar=$CAZ 0.5
+:state=11,etimergreater=150:setvar=$CAZ 0.6
+:state=11,etimergreater=175:setvar=$CAZ 0.7
+:state=11,etimergreater=200:setvar=$CAZ 0.8
+:state=11,etimergreater=225:setvar=$CAZ 0.9
+:state=11,etimergreater=250:setvar=$CAZ 1
+:state=11,etimergreater=275:setvar=$CAZ 0.9
+:state=11,etimergreater=300:setvar=$CAZ 0.8
+:state=11,etimergreater=325:setvar=$CAZ 0.7
+:state=11,etimergreater=350:setvar=$CAZ 0.6
+:state=11,etimergreater=375:setvar=$CAZ 0.5
+:state=11,etimergreater=400:setvar=$CAZ 0.4
+:state=11,etimergreater=425:setvar=$CAZ 0.3
+:state=11,etimergreater=450:setvar=$CAZ 0.2
+:state=11,etimergreater=500:setvar=$CAZ 0.1,state=3
+
+:state=12:etimerstart,state=13
+:state=13,etimergreater=0:setvar=$CAZ 0,0
+:state=13,etimergreater=25:setvar=$CAZ -0.1
+:state=13,etimergreater=50:setvar=$CAZ -0.2
+:state=13,etimergreater=75:setvar=$CAZ -0.3
+:state=13,etimergreater=100:setvar=$CAZ -0.4
+:state=13,etimergreater=125:setvar=$CAZ -0.5
+:state=13,etimergreater=150:setvar=$CAZ -0.6
+:state=13,etimergreater=175:setvar=$CAZ -0.7
+:state=13,etimergreater=200:setvar=$CAZ -0.8
+:state=13,etimergreater=225:setvar=$CAZ -0.9
+:state=13,etimergreater=250:setvar=$CAZ -1
+:state=13,etimergreater=275:setvar=$CAZ -0.9
+:state=13,etimergreater=300:setvar=$CAZ -0.8,
+:state=13,etimergreater=325:setvar=$CAZ -0.7
+:state=13,etimergreater=350:setvar=$CAZ -0.6,
+:state=13,etimergreater=375:setvar=$CAZ -0.5
+:state=13,etimergreater=400:setvar=$CAZ -0.4
+:state=13,etimergreater=425:setvar=$CAZ -0.3
+:state=13,etimergreater=450:setvar=$CAZ -0.2
+:state=13,etimergreater=475:setvar=$CAZ -0.1
+:state=13,etimergreater=500:setvar=$CAZ 0,state=0
+
+
+;End of Script

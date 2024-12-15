@@ -1,0 +1,9 @@
+;Artificial Intelligence Script
+ 
+;Header
+ 
+desc          = Pace Waypoints, If See Player, meele or shoot
+ 
+:state=0:plrdisabled
+
+;End of Script

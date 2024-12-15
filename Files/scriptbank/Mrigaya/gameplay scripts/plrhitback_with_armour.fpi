@@ -1,0 +1,50 @@
+;Artificial Intelligence Script
+ 
+;Created by Mrigaya based on logic by hukuta94
+;Edited by 2S!K Productions
+;Debugged by Mrigaya
+ 
+;Header
+ 
+desc = Player HitBack Effect on damage (both health and armour)
+
+:state=0:hudx=50,hudy=50,hudglobalx,hudglobaly,hudimage=languagebank\english\gamecore\huds\OT.dds,hudmake=display,hudlayer=10,hudname=TRANS,hudhide=1
+:state=0:hudx=50,hudy=50,hudglobalx,hudglobaly,hudimage=languagebank\english\gamecore\huds\1ARMdamage.dds,hudmake=display,hudlayer=10,hudname=ARMD,hudhide=1
+:state=0:hudx=50,hudy=50,hudglobalx,hudglobaly,hudimage=languagebank\english\gamecore\huds\2PHdamage.dds,hudmake=display,hudlayer=10,hudname=PHD,hudhide=1
+:state=0,plralive=1:dimvar=A,dimvar=H,dimlocalvar=X,dimlocalvar=Y,dimlocalvar=Z,plrwobble=1,state=1    
+:state=1,plralive=1:setvar=A $ARM,setvar=H $PH,camfov=15,plrwobble=1,state=2    
+:state=1,plralive=0:state=1
+:state=2,varnotequal=A $ARM:state=3
+:state=3,varless=A $ARM:setvar=A $ARM,plrwobble=5,state=1
+:state=3,vargreater=A $ARM:setvar=A $ARM,plrwobble=5,state=4    
+ 
+;change player wobble here based on what you want. Top no armor bottom armor on.
+:state=4,varequal=A 0:etimerstart,camfov=0,state=6,plrwobble=1
+:state=4,vargreater=A 0:etimerstart,camfov=0,state=5,plrwobble=200
+ 
+:state=5:setvarrnd=X 2  
+:state=5,etimergreater=100,varequal=X 0:camfov=5,plrsound=audiobank\voices\player\bullethit0.wav
+:state=5,etimergreater=100,varequal=X 1:camfov=5,plrsound=audiobank\voices\player\bullethit1.wav
+:state=5,etimergreater=100,varequal=X 2:camfov=5,plrsound=audiobank\voices\player\bullethit2.wav
+:state=5,etimergreater=101:hudshow=ARMD
+:state=5,etimergreater=176:hudunshow=ARMD
+:state=5,etimergreater=201:plrwobble=1,camfov=15,state=1
+ 
+:state=10,varnotequal=A $ARM:state=1
+:state=10,varnoteqaul=H $PH:state=11
+:state=11,varless=H $PH:setvar=H $PH,plrwobble=5,state=10
+:state=11,vargreater=H $PH:setvar=H $PH,plrwobble=5,state=12
+:state=12,vargreater=H 0:etimerstart,camfov=0,state=6
+ 
+:state=6:setvarrnd=Y 2,setvarrnd=Z 2
+:state=6,etimergreater=100,varequal=Y 0:camfov=5,plrsound=audiobank\voices\player\bullethit0.wav,plrwobble=500
+:state=6,etimergreater=100,varequal=Y 1:camfov=5,plrsound=audiobank\voices\player\bullethit1.wav,plrwobble=500
+:state=6,etimergreater=100,varequal=Y 2:camfov=5,plrsound=audiobank\voices\player\bullethit2.wav,plrwobble=500
+:state=6,etimergreater=200,varequal=Z 0:camfov=5,plrsound=audiobank\voices\player\scream0.wav
+:state=6,etimergreater=200,varequal=Z 1:camfov=5,plrsound=audiobank\voices\player\scream1.wav
+:state=6,etimergreater=200,varequal=Z 2:camfov=5,plrsound=audiobank\voices\player\scream2.wav
+:state=6,etimergreater=201:plrwobble=1,camfov=15,state=10
+ 
+ 
+ 
+;End of Script

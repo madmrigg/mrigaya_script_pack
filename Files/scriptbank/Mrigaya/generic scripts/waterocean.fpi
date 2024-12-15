@@ -1,0 +1,13 @@
+;Artificial Intelligence Script
+
+;Header
+
+desc          = setup water ocean color
+
+;Triggers
+
+:state=0:water=1,waterheight=475,waterfogdistance=75,waterblue=150,watergreen=120,waterred=28,waterspeed=35,waterfogred=128,waterfoggreen=192,waterfogblue=255,state=1
+:state=1,plrunderwater=1:ambience=24,state=1
+:state=1,plrunderwater=0:ambience=48,state=1
+
+;End of Script

@@ -1,0 +1,25 @@
+;Artificial Intelligence Script
+;Script by Mrigaya
+;Header
+
+desc          = Player HitBack Effect on damage
+
+;Triggers
+
+:state=0,plralive=1:dimvar=H,dimlocalvar=R,dimlocalvar=S,plrwobble=1,state=1
+:state=0,plralive=0:state=1
+:state=1:setvar=H $PH,camfov=15,state=2
+:state=1,plralive=0:setvar=H $PH,camfov=15,state=2
+:state=2,plrhelthgreater=$PH H:setvar=H $PH,plrwobble=5,state=3
+:state=2:plrwobble=5,state=3
+:state=3,plrhealthless=%H:etimerstart,camfov=0,state=4
+:state=4:setvarrnd=R 2,setvarrnd=S 2
+:state=4,etimergreater=100,varequal=S 0:camfov=5,plrsound=audiobank\Downloaded\Gamemaster Audio - Bullet Impact Sounds\bullet_impact_body_thump_02.wav
+:state=4,etimergreater=100,varequal=S 1:camfov=5,plrsound=audiobank\Downloaded\Gamemaster Audio -  Bullet Impact Sounds\bullet_flyby_fast_05.wav
+:state=4,etimergreater=100,varequal=S 2:camfov=5,plrsound=audiobank\Downloaded\Gamemaster Audio -  Bullet Impact Sounds\hurt2.wav
+:state=4,etimergreater=150:plrwobble=750,camfov=0
+:state=4,etimergreater=250,varequal=R 0:setvar=H $PH,plrsound=audiobank\voices\shadowfire'splayersounds\hurt1.wav,state=1
+:state=4,etimergreater=250,varequal=R 1:setvar=H $PH,plrsound=audiobank\voices\shadowfire'splayersounds\hurt2.wav,state=1
+:state=4,etimergreater=250,varequal=R 2:setvar=H $PH,plrsound=audiobank\voices\shadowfire'splayersounds\hurt3.wav,state=1
+
+;End of Script
